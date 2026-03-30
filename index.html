@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Karachi Naseeb Biryani - Authentic Biryani, Pulao, Whole Daig & Zarda in Muzaffarabad, AJK. 5 Outlets • Home Delivery Coming Soon">
+    <title>Karachi Naseeb Biryani | Muzaffarabad</title>
+    
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body class="font-sans">
+    <!-- NAV -->
+    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="https://via.placeholder.com/150x150/FF6600/FFFFFF?text=KNB" alt="Karachi Naseeb Biryani Logo" class="w-10 h-10 rounded-xl object-cover">
+                <div>
+                    <h1 class="text-2xl font-bold tracking-tight">Karachi Naseeb Biryani</h1>
+                    <p class="text-xs text-orange-600 -mt-1">Muzaffarabad • AJK</p>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#menu" class="hover:text-orange-600">Menu</a>
+                <a href="#locations" class="hover:text-orange-600">Outlets</a>
+                <a href="#gallery" class="hover:text-orange-600">Gallery</a>
+                <a href="#testimonials" class="hover:text-orange-600">Reviews</a>
+                <a href="#contact" class="hover:text-orange-600">Contact</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <!-- Home Delivery Banner -->
+                <div class="hidden md:flex items-center gap-2 bg-yellow-400 text-black text-xs font-bold px-4 py-1.5 rounded-3xl">
+                    🚚 Home Delivery <span class="bg-black text-white px-2 py-px rounded-2xl text-[10px]">COMING SOON</span>
+                </div>
+                
+                <a href="https://wa.me/03477041404" target="_blank"
+                   class="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-3xl text-sm font-semibold">
+                    Order on WhatsApp
+                </a>
+                
+                <button onclick="toggleMobileMenu()" class="md:hidden text-3xl">☰</button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t px-6 py-4 text-sm">
+            <a href="#menu" onclick="toggleMobileMenu()" class="block py-3">Interactive Menu</a>
+            <a href="#locations" onclick="toggleMobileMenu()" class="block py-3">Our 5 Outlets</a>
+            <a href="#gallery" onclick="toggleMobileMenu()" class="block py-3">Food Gallery</a>
+            <a href="#testimonials" onclick="toggleMobileMenu()" class="block py-3">Customer Reviews</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block py-3">Contact</a>
+            <div class="pt-4">
+                <a href="https://wa.me/03477041404" target="_blank" class="block text-center bg-orange-500 text-white py-4 rounded-3xl">Order via WhatsApp</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero-bg h-screen flex items-center text-white relative">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-6 py-2 rounded-3xl mb-6 text-sm">
+                ⭐ Best Biryani in Muzaffarabad
+            </div>
+            <h1 class="text-6xl md:text-7xl font-bold leading-none tracking-tighter mb-6">
+                Karachi Naseeb<br>Biryani &amp; Pulao
+            </h1>
+            <p class="text-2xl mb-8">5 Outlets • Whole Daig • Zarda • Authentic Karachi Taste</p>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#menu" class="bg-white text-orange-600 px-8 py-4 rounded-3xl font-semibold text-lg flex items-center gap-3">
+                    🍽️ View Interactive Menu
+                </a>
+                <a href="#locations" class="border-2 border-white px-8 py-4 rounded-3xl font-semibold text-lg">
+                    📍 Find Nearest Outlet
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 text-xs tracking-widest flex flex-col items-center">
+            SCROLL ↓
+        </div>
+
+        <!-- Home Delivery Coming Soon Banner -->
+        <div class="absolute top-8 right-8 bg-white text-black text-sm font-semibold px-5 py-2 rounded-3xl shadow-xl flex items-center gap-3">
+            🚚 Home Delivery
+            <span class="bg-orange-500 text-white px-3 py-px rounded-2xl text-xs">COMING SOON</span>
+        </div>
+    </header>
+
+    <!-- MENU SECTION -->
+    <section id="menu" class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-12">Our Interactive Menu</h2>
+            <div id="menuGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- JS populated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATIONS + MAP -->
+    <section id="locations" class="py-20 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-4">Our 5 Outlets in Muzaffarabad</h2>
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div id="locationList" class="space-y-4">
+                    <!-- JS populated -->
+                </div>
+                <div id="map" class="h-[520px] rounded-3xl overflow-hidden shadow-2xl"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY (New Idea) -->
+    <section id="gallery" class="py-20 bg-orange-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-12">Food Gallery</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <img src="https://unsplash.com/photos/food-photography-of-bowl-of-chicken-biryani-OterGMpkdsM/download?force=true" alt="Chicken Biryani" class="rounded-3xl shadow-md object-cover h-64 w-full">
+                <img src="https://unsplash.com/photos/traditional-pakistani-chicken-biryani-closeup-NrD8fXIjB4I/download?force=true" alt="Special Biryani" class="rounded-3xl shadow-md object-cover h-64 w-full">
+                <img src="https://images.pexels.com/photos/1624487/pexels-photo-1624487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Daig Style" class="rounded-3xl shadow-md object-cover h-64 w-full">
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS (New Idea) -->
+    <section id="testimonials" class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-12">What Our Customers Say</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- JS populated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-20 bg-orange-50">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6">Ready to enjoy Karachi taste?</h2>
+            <a href="https://wa.me/03477041404" target="_blank" 
+               class="inline-block bg-orange-500 text-white text-2xl font-semibold px-12 py-6 rounded-3xl hover:scale-105">
+                💬 WhatsApp Now: 0347-7041404
+            </a>
+            <p class="mt-8 text-sm text-gray-500">All outlets open 11 AM – 11 PM daily</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-sm text-gray-400">Demo website for Karachi Naseeb Biryani • Replace images, menu &amp; coordinates with real data</p>
+        </div>
+    </footer>
+
+    <!-- MENU MODAL -->
+    <div id="menuModal" onclick="if(event.target===this)closeModal()" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center">
+        <div onclick="event.stopImmediatePropagation()" class="bg-white rounded-3xl max-w-lg w-full mx-4 overflow-hidden">
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
