@@ -1,20 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
-
-:root {
-    --primary: #e67e22;
-}
-
-* { transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; transition-duration: 150ms; }
-
 .hero-bg {
     background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
-                url('https://unsplash.com/photos/traditional-pakistani-chicken-biryani-closeup-NrD8fXIjB4I/download?force=true') center/cover no-repeat;
+                url('https://images.pexels.com/photos/1624487/pexels-photo-1624487.jpeg?auto=compress&cs=tinysrgb&w=2000') center/cover no-repeat;
 }
 
 .menu-card {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .menu-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 25px 25px 30px -10px rgb(0 0 0 / 0.15);
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 30px 40px -15px rgb(0 0 0 / 0.2);
 }
